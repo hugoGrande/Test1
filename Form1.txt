@@ -11,7 +11,7 @@ namespace USteuerbetrag
         {
             double gehalt, steuersatz, steuerbetrag;
             gehalt = Convert.ToDouble(Txteingabe.Text);
-
+            //Github LernenTest
             if (gehalt < 12000)
                 steuersatz = 12;
             else if (gehalt < 20000)
