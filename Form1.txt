@@ -1,0 +1,44 @@
+namespace USteuerbetrag
+{
+    public partial class LblAzeige2 : Form
+    {
+        public LblAzeige2()
+        {
+            InitializeComponent();
+        }
+
+        private void CmdBerechnenIfElse_Click(object sender, EventArgs e)
+        {
+            double gehalt, steuersatz, steuerbetrag;
+            gehalt = Convert.ToDouble(Txteingabe.Text);
+
+            if (gehalt < 12000)
+                steuersatz = 12;
+            else if (gehalt < 20000)
+                steuersatz = 15;
+            else if (gehalt < 30000)
+                steuersatz = 20;
+            else
+                steuersatz = 25;
+
+            steuerbetrag = gehalt * steuersatz / 100;
+            Lblanzeige1.Text = "Steuerbetrag: " + steuerbetrag;
+
+        }
+
+        private void CmdBerechnenSwitch_Click(object sender, EventArgs e)
+        {
+            double gehalt, steuersatz, steuerbetrag;
+            gehalt = Convert.ToDouble(Txteingabe.Text);
+            steuersatz = gehalt switch
+            {
+              < 12000 => 12,
+              < 20000 => 15,
+              < 30000 => 20,
+              _=> 25              
+            };
+            steuerbetrag = gehalt * steuersatz / 100;
+            Lblanzeige1.Text = "Steuerbetrag: " + steuerbetrag;
+        }
+    }
+}
